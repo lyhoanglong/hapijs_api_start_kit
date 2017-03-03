@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+     // Temporarily disabled due to a possible bug in babel-eslint (todomvc example)
+    "block-scoped-var": 0,
+    "no-console": 0,
+    // Temporarily disabled for test/* until babel/babel-eslint#33 is resolved
+    "padded-blocks": 0,
+    "space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
+    "max-len": [1, 120, 2, {ignoreComments: true}],
+    "no-underscore-dangle": [0],
+    "global-require": [0],
+    "react/prop-types": [0],
+    "newline-per-chained-call": [0],
+    "no-else-return": [0],
+    "new-cap": [1],
+    "semi": [2, "always"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+  }
+}
