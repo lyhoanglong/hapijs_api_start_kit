@@ -1,15 +1,35 @@
+import Joi from 'joi';
 import { UserController } from '../controllers';
 
 export default [{
   method: 'GET',
   path: '/api/users',
-  handler: {
-    async: UserController.index,
+  config: {
+    handler: {
+      async: UserController.index,
+    },
+    description: 'Get Users',
+    notes: 'Return a list of user',
+    tags: ['api', 'users'],
+    plugins: {
+      pagination: {
+        enabled: true,
+      },
+    },
   },
 }, {
   method: 'GET',
   path: '/api/users/{id}',
-  handler: {
-    async: UserController.show,
+  config: {
+    handler: {
+      async: UserController.show,
+    },
+    description: 'Get user info',
+    tags: ['api', 'users'],
+    validate: {
+      params: {
+        id: Joi.number().required(),
+      },
+    },
   },
 }];

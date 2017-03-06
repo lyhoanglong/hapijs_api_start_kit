@@ -1,3 +1,4 @@
+import Boom from 'boom';
 import { User } from '../models';
 
 export async function index(request, reply) {
@@ -6,7 +7,10 @@ export async function index(request, reply) {
 }
 
 export async function show(request, reply) {
-  const user = await User.query().findById(request.params.id);
+  const id = request.params.id;
+  const user = await User.query().findById(id);
+
+  if (!user) return reply(Boom.badRequest('User not found'));
   return reply(user);
 }
 
