@@ -4,3 +4,4 @@ yarn.lock
 *.log
 .idea/
 .DS_Store
+.env
